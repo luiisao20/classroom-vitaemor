@@ -1,0 +1,114 @@
+import * as Yup from "yup";
+
+const regex = {
+  password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/,
+  text: /^[^\s][\p{L}\p{M}\d\s.,;:!?()"'¿¡-]*[^\s]$/u,
+  names: /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]+$/,
+  grade: /^(10(\.0{1,2})?|[0-9](\.[0-9]{1,2})?)$/,
+};
+
+export const updatePassword = Yup.object().shape({
+  oldPassword: Yup.string().required("El campo no puede estar vacío"),
+
+  newPassword: Yup.string()
+    .matches(
+      regex.password,
+      "La contraseña debe tener mínimo 8 caracteres, una mayúscula, un número y un caracter especial (!'&+-,./-@?:;)"
+    )
+    .required("Debes ingresar una contraseña"),
+
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("newPassword")], "Las contraseñas deben coincidir")
+    .required("Debes repetir tu contraseña"),
+});
+
+export const moduleForm = Yup.object().shape({
+  title: Yup.string().matches(regex.text).required("El título es obligatorio"),
+
+  moduleNumber: Yup.number()
+    .required("El número del módulo es obligatorio")
+    .typeError("Este campo sólo admite números"),
+});
+
+export const taskForm = Yup.object().shape({
+  title: Yup.string().required("El título es un campo obligatorio"),
+
+  dueDate: Yup.date().required("La fecha es un campo obligatorio"),
+
+  instructions: Yup.string().required("La descripción es un campo obligatorio"),
+});
+
+export const adForm = Yup.object().shape({
+  title: Yup.string().required("El título es un campo obligatorio"),
+
+  description: Yup.string().required("El asunto es un campo obligatorio"),
+
+  url: Yup.string(),
+});
+
+export const registerForm = Yup.object().shape({
+  firstName: Yup.string()
+    .matches(
+      regex.names,
+      "Hay caracteres inválidos, ingresa sólo letras y espacios"
+    )
+    .required("Este campo es obligatorio"),
+
+  lastName: Yup.string()
+    .matches(
+      regex.names,
+      "Hay caracteres inválidos, ingresa sólo letras y espacios"
+    )
+    .required("Este campo es obligatorio"),
+
+  email: Yup.string()
+    .email("Debes ingresar un correo electrónico válido")
+    .required("Este campo es obligatorio"),
+
+  password: Yup.string()
+    .matches(
+      regex.password,
+      "La contraseña debe tener mínimo 8 caracteres, una mayúscula, un número y un caracter especial (!'&+-,./-@?:;)"
+    )
+    .required("Debes ingresar una contraseña"),
+
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password")], "Las contraseñas deben coincidir")
+    .required("Debes repetir tu contraseña"),
+});
+
+export const gradeForm = Yup.object().shape({
+  grade: Yup.string()
+    .matches(
+      regex.grade,
+      "La calificación sólo admite números y estar entre 0 y 10"
+    )
+    .required("Debes ingresar una calificación"),
+
+  feedback: Yup.string().matches(
+    regex.text,
+    "Asegúrate de ingresa texto válido"
+  ),
+});
+
+export const buildGradesSchema = (
+  questions: { idQuestion: number; questionType: number }[]
+) => {
+  const gradeFields: Record<string, Yup.StringSchema> = {};
+
+  questions.forEach(({ idQuestion, questionType }) => {
+    gradeFields[idQuestion] =
+      questionType === 1
+        ? Yup.string() // opción múltiple, ya viene predefinida
+        : Yup.string()
+            .required("Este campo es obligatorio")
+            .test("valid-range", "Debe estar entre 0 y 1", (val) => {
+              const num = parseFloat(val ?? "");
+              return !isNaN(num) && num >= 0 && num <= 1;
+            });
+  });
+
+  return Yup.object({
+    grades: Yup.object().shape(gradeFields),
+  });
+};
