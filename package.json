@@ -1,5 +1,5 @@
 {
-  "name": "clasroom-vitaemor",
+  "name": "classroom-vitaemor",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,9 +13,11 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^7.3.5",
+    "@mui/x-date-pickers": "^8.19.0",
     "@supabase/supabase-js": "^2.81.0",
     "@tailwindcss/vite": "^4.1.17",
     "@tanstack/react-query": "^5.90.7",
+    "dayjs": "^1.11.19",
     "flowbite-react": "^0.12.10",
     "formik": "^2.4.9",
     "react": "^19.2.0",

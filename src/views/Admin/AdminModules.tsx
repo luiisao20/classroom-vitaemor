@@ -22,7 +22,7 @@ export const AdminModules = () => {
         onClose={() => setOpenModal(false)}
         onSendData={async(module) => {
           await modulesMutation.mutateAsync({
-            moduleNumber: module.moduleNumber,
+            moduleNumber: parseInt(module.moduleNumber),
             title: module.title,
           });
         }}

@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getOneModule } from "../../core/database/modules/get-one-module.action";
 import { publishModule } from "../../core/database/modules/update-module.action";
+import { insertModuleResume } from "../../core/database/modules/insert-module-resume.action";
 
 export const useOneModule = (id: number) => {
   const queryClient = useQueryClient();
@@ -25,5 +26,20 @@ export const useOneModule = (id: number) => {
     },
   });
 
-  return { moduleQuery, moduleUpdateMutation };
+  const moduleResumeMutation = useMutation({
+    mutationFn: (resume: string) => insertModuleResume(resume, id),
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["module", id],
+      });
+      alert("¡Resumen actualizado con éxito!");
+    },
+
+    onError: (error) => {
+      alert(error.message);
+    },
+  });
+
+  return { moduleQuery, moduleUpdateMutation, moduleResumeMutation };
 };

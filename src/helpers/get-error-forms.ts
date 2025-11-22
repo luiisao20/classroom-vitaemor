@@ -35,7 +35,7 @@ export const taskForm = Yup.object().shape({
 
   dueDate: Yup.date().required("La fecha es un campo obligatorio"),
 
-  instructions: Yup.string().required("La descripción es un campo obligatorio"),
+  description: Yup.string().required("La descripción es un campo obligatorio"),
 });
 
 export const adForm = Yup.object().shape({
