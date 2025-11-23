@@ -11,7 +11,6 @@ interface Props {
   warning?: boolean;
   showButtons?: boolean;
   loading?: boolean;
-  moduleId?: string;
 
   onClose: () => void;
   onConfirm?: () => void;
@@ -56,7 +55,7 @@ export const ModalMessage = ({
                   type="button"
                   className={`text-white cursor-pointer  focus:ring-4 focus:outline-none font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center  ${
                     warning
-                      ? "bg-red-600 hover:bg-red-800 focus:ring-red-300"
+                      ? "bg-danger hover:bg-danger/60 focus:ring-red-300"
                       : "bg-success hover:bg-success/60 focus:ring-success/30"
                   }`}
                 >

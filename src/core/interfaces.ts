@@ -1,4 +1,4 @@
-import type {Dayjs} from "dayjs";
+import type { Dayjs } from "dayjs";
 import type { ReactElement } from "react";
 
 export interface SideRoute {
@@ -35,4 +35,34 @@ export interface Task {
   title: string;
   description: string;
   status?: boolean;
+}
+
+export interface Exam {
+  id: number;
+  status: boolean;
+  dueDate: Dayjs | null;
+  review: boolean;
+}
+
+export interface Question {
+  id?: number;
+  text: string;
+  idExam: number;
+  idType: number;
+}
+
+export interface Option {
+  id?: number;
+  text: string;
+  isCorrect: boolean;
+  idQuestion?: string;
+}
+
+export interface QuestionWithOptions extends Question {
+  options: Option[];
+}
+
+export interface QuestionType {
+  id: number;
+  type: string;
 }

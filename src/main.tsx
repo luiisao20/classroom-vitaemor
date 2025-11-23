@@ -18,6 +18,7 @@ import { AdminModules } from "./views/Admin/AdminModules.tsx";
 import { ModulesIndex } from "./views/Admin/modules/index.tsx";
 import { InfoModule } from "./views/Admin/modules/InfoModule.tsx";
 import { TasksModule } from "./views/Admin/modules/TasksModule.tsx";
+import { ExamModule } from "./views/Admin/modules/ExamModule.tsx";
 
 const root = document.getElementById("root")!;
 
@@ -43,6 +44,7 @@ ReactDOM.createRoot(root).render(
               <Route path="module/:id" element={<ModulesIndex />}>
                 <Route path="info" element={<InfoModule />} />
                 <Route path="tasks" element={<TasksModule />} />
+                <Route path="exam" element={<ExamModule />} />
               </Route>
             </Route>
           </Route>

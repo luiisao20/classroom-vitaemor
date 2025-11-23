@@ -6,7 +6,6 @@ import { Colors } from "../../assets/colors";
 
 interface Props {
   item: Task;
-  deleteLoading?: boolean;
 
   onDelete?: (id: number) => void;
   onPublish?: (id: number, value: boolean) => void;
@@ -15,7 +14,6 @@ interface Props {
 
 export const TaskComponent = ({
   item,
-  deleteLoading,
 
   onDelete = () => {},
   onModify = () => {},
@@ -24,7 +22,9 @@ export const TaskComponent = ({
   return (
     <div className="shadow-sm shadow-secondary p-2 rounded-xl">
       <div className="px-4">
-        <h2 className="font-semibold text-lg text-text-secondary">{item.title}</h2>
+        <h2 className="font-semibold text-lg text-text-secondary">
+          {item.title}
+        </h2>
         <div className="flex flex-col md:flex-row space-y-2 md:justify-between my-2">
           <p>
             <span className="font-semibold">Publicado el:</span>{" "}
@@ -53,10 +53,7 @@ export const TaskComponent = ({
           </div>
           <button
             onClick={() => onDelete(item.id!)}
-            disabled={deleteLoading}
-            className={`flex items-center gap-4 cursor-pointer ${
-              deleteLoading && "cursor-progress"
-            }`}
+            className="flex items-center gap-4 cursor-pointer"
           >
             <p className="font-semibold">¿Eliminar tarea?</p>
             <MdDeleteForever color={Colors.danger} size={30} />
