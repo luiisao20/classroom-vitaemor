@@ -19,6 +19,12 @@ import { ModulesIndex } from "./views/Admin/modules/index.tsx";
 import { InfoModule } from "./views/Admin/modules/InfoModule.tsx";
 import { TasksModule } from "./views/Admin/modules/TasksModule.tsx";
 import { ExamModule } from "./views/Admin/modules/ExamModule.tsx";
+import { MeetingsModule } from "./views/Admin/modules/meetings/MeetingsModule.tsx";
+import { MeetingsIndex } from "./views/Admin/modules/meetings/index.tsx";
+import { MeetingInfo } from "./views/Admin/modules/meetings/MeetingInfo.tsx";
+import {StudentsScreen} from "./views/Admin/StudentsScreen.tsx";
+import {StudentIndex} from "./views/Admin/student/index.tsx";
+import {StudentModules} from "./views/Admin/student/StudentModules.tsx";
 
 const root = document.getElementById("root")!;
 
@@ -45,6 +51,14 @@ ReactDOM.createRoot(root).render(
                 <Route path="info" element={<InfoModule />} />
                 <Route path="tasks" element={<TasksModule />} />
                 <Route path="exam" element={<ExamModule />} />
+                <Route path="meetings" element={<MeetingsIndex />}>
+                  <Route index element={<MeetingsModule />} />
+                  <Route path=":meetingId" element={<MeetingInfo />} />
+                </Route>
+              </Route>
+              <Route path="students" element={<StudentsScreen />}/>
+              <Route path="student/:id" element={<StudentIndex />}>
+                <Route index element={<StudentModules />} />
               </Route>
             </Route>
           </Route>

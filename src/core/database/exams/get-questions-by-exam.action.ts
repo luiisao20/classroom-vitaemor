@@ -27,8 +27,5 @@ export const getQuestionsByExam = async (
     });
   }
 
-  console.log(questions);
-  
-
   return questions;
 };

@@ -66,3 +66,24 @@ export interface QuestionType {
   id: number;
   type: string;
 }
+
+export interface Meeting {
+  id?: number;
+  number: number;
+  subtitle?: string;
+  date: Dayjs | null;
+}
+
+export interface Student {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+
+export interface StudentList {
+  id: string;
+  firstName: string;
+  lastName: string;
+  assistance: boolean;
+}

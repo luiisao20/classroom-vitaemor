@@ -5,7 +5,7 @@ import { supabase } from "../../../supabase";
 import { loginUser } from "../../core/auth/login.action";
 import { updatePassword } from "../../core/auth/updatePassword.action";
 import { registerUser } from "../../core/auth/register.action";
-import type { UserData } from "../../core/auth/interface";
+import type { NewUser } from "../../views/Register";
 
 interface AuthState {
   user?: User;
@@ -23,7 +23,7 @@ interface AuthState {
     oldPassword: string,
     newPassword: string
   ) => Promise<boolean>;
-  register: (data: UserData) => Promise<boolean>;
+  register: (data: NewUser) => Promise<boolean>;
 }
 
 export const useAuthStore = create<AuthState>()((set, get) => ({
@@ -111,7 +111,7 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
     return false;
   },
 
-  register: async (data: UserData) => {
+  register: async (data: NewUser) => {
     set({ loading: true });
     const res = await registerUser(data.email, data.password);
     set({ loading: false });

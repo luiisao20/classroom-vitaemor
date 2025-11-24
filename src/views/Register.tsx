@@ -6,19 +6,19 @@ import { useAuthStore } from "../presentation/store/useAuthStore";
 import { Link, useNavigate } from "react-router";
 import { useUser } from "../presentation/user/useUser";
 
-interface NewUser extends UserData {
+export interface NewUser extends UserData {
   email: string;
   password: string;
   confirmPassword: string;
 }
 
 export const Register = () => {
+  const navigate = useNavigate();
+
   const { user, register } = useAuthStore();
 
   const { userMutation } = useUser(user?.id);
-  
-  const navigate = useNavigate();
-  
+
   const newUser: NewUser = {
     email: "",
     firstName: "",
@@ -26,6 +26,7 @@ export const Register = () => {
     password: "",
     confirmPassword: "",
   };
+
   return (
     <section className="bg-gray-50">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -39,11 +40,16 @@ export const Register = () => {
               validationSchema={registerForm}
               onSubmit={async (formLike, { setSubmitting }) => {
                 await register(formLike);
-                await userMutation.mutateAsync({
-                  firstName: formLike.firstName,
-                  lastName: formLike.lastName,
-                });
-                if (userMutation.isSuccess) navigate('/home')
+                try {
+                  await userMutation.mutateAsync({
+                    firstName: formLike.firstName,
+                    lastName: formLike.lastName,
+                  });
+
+                  navigate("/home");
+                } catch (error) {
+                  console.log(error);
+                }
                 setSubmitting(false);
               }}
             >

@@ -9,15 +9,17 @@ import {
   NavbarToggle,
 } from "flowbite-react";
 import type { UserData } from "../../core/auth/interface";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { useAuthStore } from "../../presentation/store/useAuthStore";
 import { useUser } from "../../presentation/user/useUser";
 
 export const NavbarComponent = () => {
+  const navigate = useNavigate();
+
   const [userData, setUserData] = useState<UserData>();
 
-  const { user } = useAuthStore();
+  const { user, logout } = useAuthStore();
 
   const { userQuery } = useUser(user?.id);
 
@@ -63,9 +65,15 @@ export const NavbarComponent = () => {
             <Link to="">Pagos</Link>
           </DropdownItem>
           <DropdownDivider />
-          <DropdownItem>
-            <Link to="">Cerrar sesión</Link>
-          </DropdownItem>
+          <button
+            className="cursor-pointer text-text-secondary py-2 px-4"
+            onClick={async () => {
+              await logout();
+              navigate("/");
+            }}
+          >
+            Cerrar sesión
+          </button>
         </Dropdown>
         <NavbarToggle />
       </div>

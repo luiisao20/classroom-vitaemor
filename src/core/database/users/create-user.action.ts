@@ -10,6 +10,4 @@ export const createUser = async (
     .insert({ first_name: firstName, last_name: lastName, id: idUser });
 
   if (error) throw new Error(error.message);
-
-  return false;
 };

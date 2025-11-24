@@ -8,6 +8,7 @@ import { BreadCumbComponent } from "../../../components/navigation/BreadCumbComp
 import { FaCheckSquare } from "react-icons/fa";
 import { MdTask } from "react-icons/md";
 import { BsUnion } from "react-icons/bs";
+import { SiGooglemeet } from "react-icons/si";
 
 export const ModulesIndex = () => {
   const routes: SideRoute[] = [
@@ -25,6 +26,11 @@ export const ModulesIndex = () => {
       name: "Examen",
       route: "exam",
       icon: <BsUnion size={25} />,
+    },
+    {
+      name: "Reuniones",
+      route: "meetings",
+      icon: <SiGooglemeet size={25} />,
     },
   ];
 

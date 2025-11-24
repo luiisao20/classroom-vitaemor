@@ -155,19 +155,17 @@ export const ExamModule = () => {
                   }
                 />
               </div>
-              <div>
-                <div className="flex items-center gap-4 mt-2 ml-4">
-                  <ToggleComponent
-                    id={`${id}`}
-                    checked={examInfo.status ?? false}
-                    onChange={(checked) =>
-                      setExamInfo({ ...examInfo, status: checked })
-                    }
-                  />
-                  <p className="font-semibold text-text-secondary">
-                    {examInfo.status ? "Habilitado" : "Deshabilitado"}
-                  </p>
-                </div>
+              <div className="flex items-center gap-4 mt-2 ml-4">
+                <ToggleComponent
+                  id={`${id}`}
+                  checked={examInfo.status ?? false}
+                  onChange={(checked) =>
+                    setExamInfo({ ...examInfo, status: checked })
+                  }
+                />
+                <p className="font-semibold text-text-secondary">
+                  {examInfo.status ? "Habilitado" : "Deshabilitado"}
+                </p>
               </div>
             </div>
             <div>
