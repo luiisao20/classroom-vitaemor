@@ -13,7 +13,7 @@ export const insertAssistances = async (
 
   const { error } = await supabase
     .from("users_attend_meetings")
-    .insert(payload);
+    .upsert(payload, { onConflict: "user_id, meeting_id" });
 
   if (error) throw new Error(error.message);
 };

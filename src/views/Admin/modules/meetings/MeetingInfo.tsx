@@ -27,7 +27,7 @@ export const MeetingInfo = () => {
     message: "¡La asistencia se ha guardado con éxito!",
   });
 
-  const { studentsQuery } = useStudents();
+  const { studentsQuery } = useStudents('');
   const { meetingQuery } = useMeeting(idMeeting);
   const { assistanceMutation, assistanceQuery } = useAssistance(idMeeting);
 
@@ -143,7 +143,13 @@ export const MeetingInfo = () => {
           </table>
         </div>
         <button
-          onClick={() => assistanceMutation.mutate(studentsEmptyAssistance)}
+          onClick={() =>
+            assistanceMutation.mutate(
+              studentsAssistance.length > 0
+                ? studentsAssistance
+                : studentsEmptyAssistance
+            )
+          }
           disabled={assistanceMutation.isPending}
           className={`bg-secondary place-self-end font-semibold text-text-secondary hover:bg-secondary/60 p-4 rounded-xl cursor-pointer ${
             assistanceMutation.isPending && "cursor-progress"

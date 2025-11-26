@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import type { Student } from "../../core/interfaces";
-import { useStudents } from "../../presentation/students/useStudents";
-import { StudentsTableComponent } from "../../components/students/StudentsTableComponent";
+import {useEffect, useState} from "react";
+import {useStudents} from "../../../presentation/students/useStudents";
+import type {Student} from "../../../core/interfaces";
+import {StudentsTableComponent} from "../../../components/students/StudentsTableComponent";
 
-export const StudentsScreen = () => {
+export const PaymentsAdmin = () => {
   const [search, setSearch] = useState<string>("");
   const [studentsList, setStudentsList] = useState<Student[]>([]);
 
@@ -16,8 +16,9 @@ export const StudentsScreen = () => {
   return (
     <StudentsTableComponent
       search={search}
+      payments
       onChangeSearch={setSearch}
       students={studentsList}
     />
   );
-};
+}

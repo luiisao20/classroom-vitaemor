@@ -20,8 +20,8 @@ export const PasswordScreen = () => {
   const { changePassword } = useAuthStore();
 
   return (
-    <div className="bg-white p-4 rounded-xl">
-      <h2 className="text-center font-semibold text-xl">Cambiar contraseña</h2>
+    <div>
+      <h2 className="text-center text-primary font-semibold text-xl">Cambiar contraseña</h2>
       <p className="text-sm font-normal px-10 my-4">
         La contraseña debe tener mínimo 8 caracteres, una letra mayúscula, una
         minúscula, un número y un carácter especial {`(= >?:;'{})`}.

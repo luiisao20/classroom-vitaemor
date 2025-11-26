@@ -32,13 +32,13 @@ export const AdminModules = () => {
         Vista de los módulos
       </h2>
       <div className="flex justify-between items-center px-10">
-        <h2 className="text-lg">¿Deseas crear un nuevo módulo?</h2>
+        <h2 className="text-sm">¿Deseas crear un nuevo módulo?</h2>
         <button
           onClick={() => setOpenModal(true)}
           className="flex items-center bg-primary text-white rounded-xl p-2 gap-2 cursor-pointer hover:bg-primary/60"
         >
           <FaBook size={20} />
-          <span className="text-lg">Añadir</span>
+          <span className="text-sm">Añadir</span>
         </button>
       </div>
       {modulesList.length > 0 ? (

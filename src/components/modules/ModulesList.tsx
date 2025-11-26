@@ -7,12 +7,14 @@ interface Props {
   modulesList: Module[];
   route: "module" | "generals" | "students";
   generals?: boolean;
+  studentId?: string;
 }
 
 export const ModulesList = ({
   modulesList,
   route,
   generals = false,
+  studentId
 }: Props) => {
   const displayedModules = generals
     ? modulesList
@@ -25,7 +27,7 @@ export const ModulesList = ({
       case "generals":
         return `/home/admin/module/${idModule}/info`;
       case "students":
-        return `module/${idModule}/exam`;
+        return `/home/admin/student/${studentId}/module/${idModule}/exam`;
     }
   };
 
@@ -38,7 +40,7 @@ export const ModulesList = ({
             className="shadow rounded-xl cursor-pointer p-2 flex justify-between px-4 items-center
                 hover:transition hover:delay-100 hover:scale-115 hover:shadow-secondary"
           >
-            Conferencia {item.moduleNumber}{" "}
+            Módulo {item.moduleNumber}{" "}
             <GoArrowRight size={25} color={Colors.primary} />
           </Link>
         </div>

@@ -7,6 +7,7 @@ import { Link } from "react-router";
 interface Props {
   students: Student[];
   search: string;
+  payments?: boolean;
 
   onChangeSearch: (text: string) => void;
 }
@@ -14,10 +15,13 @@ interface Props {
 export const StudentsTableComponent = ({
   students,
   search,
+  payments,
+
   onChangeSearch,
 }: Props) => {
   const goRoute = (id: string): string => {
-    return `/home/admin/student/${id}`;
+    if (payments) return `/home/admin/payments/${id}`
+    return `/home/admin/student/${id}/modules`;
   };
 
   return (
@@ -49,7 +53,7 @@ export const StudentsTableComponent = ({
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+          <thead className="text-sm text-gray-700 uppercase bg-gray-50">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Estudiante
@@ -74,7 +78,7 @@ export const StudentsTableComponent = ({
                     color={Colors.secondary}
                   />
                   <div className="ps-3">
-                    <div className="text-xs font-semibold">
+                    <div className="text-sm font-semibold">
                       {student.lastName} {student.firstName}
                     </div>
                     <div className="font-normal text-xs text-gray-500">
@@ -85,7 +89,7 @@ export const StudentsTableComponent = ({
                 <td className="px-6 py-4">
                   <Link
                     to={goRoute(student.id!)}
-                    className="font-medium text-xs text-primary hover:underline"
+                    className="font-medium text-sm text-primary hover:underline"
                   >
                     Ingresar
                   </Link>

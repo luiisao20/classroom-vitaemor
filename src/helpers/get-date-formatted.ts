@@ -7,9 +7,19 @@ const opciones: Intl.DateTimeFormatOptions = {
   hour12: false,
 };
 
-export const getFormattedDate = (date: string): string | null => {
+const opcionesShort: Intl.DateTimeFormatOptions = {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  hour12: false,
+};
+
+export const getFormattedDate = (
+  date: string,
+  formatShort?: boolean
+): string | null => {
   const fecha = new Date(date);
   return isNaN(fecha.getTime())
     ? null
-    : fecha.toLocaleString("es-ES", opciones);
+    : fecha.toLocaleString("es-ES", formatShort ? opcionesShort : opciones);
 };

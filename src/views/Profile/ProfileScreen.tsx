@@ -49,8 +49,8 @@ export const ProfileScreen = () => {
         message={modalProps.message}
         onClose={() => setModalProps({ message: "", open: false })}
       />
-      <div className="bg-white rounded-xl p-4">
-        <h2 className="text-center mb-4 text-xl font-semibold">
+      <div>
+        <h2 className="text-center text-primary mb-4 text-xl font-semibold">
           Bienvenido {dataUser?.firstName} {dataUser?.lastName}
         </h2>
         <h2 className="px-4 text-sm">Correo: {user?.email}</h2>

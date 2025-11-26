@@ -87,3 +87,20 @@ export interface StudentList {
   lastName: string;
   assistance: boolean;
 }
+
+export interface Payment {
+  id: number;
+  createdAt: Date;
+  approvedAt?: Dayjs | null;
+  url: string;
+  ammount?: number;
+  status?: boolean;
+  path: string;
+}
+
+export interface StudentAssistance {
+  number: number;
+  date: string;
+  status: boolean;
+  moduleNumber: number;
+}

@@ -6,6 +6,7 @@ import { PiContactlessPaymentFill } from "react-icons/pi";
 
 import { SidebarComponent } from "../../components/navigation/SidebarComponent";
 import type { SideRoute } from "../../core/interfaces";
+import { SiGooglemeet } from "react-icons/si";
 
 export const IndexProfile = () => {
   const routes: SideRoute[] = [
@@ -28,6 +29,11 @@ export const IndexProfile = () => {
       name: "Pagos",
       route: "payments",
       icon: <PiContactlessPaymentFill size={25} />,
+    },
+    {
+      name: "Reuniones",
+      route: "meetings",
+      icon: <SiGooglemeet size={25} />,
     },
   ];
 
