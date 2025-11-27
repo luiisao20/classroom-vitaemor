@@ -27,10 +27,6 @@ import { ExamModule } from "./views/Admin/modules/ExamModule.tsx";
 import { MeetingsModule } from "./views/Admin/modules/meetings/MeetingsModule.tsx";
 import { MeetingsIndex } from "./views/Admin/modules/meetings/index.tsx";
 import { MeetingInfo } from "./views/Admin/modules/meetings/MeetingInfo.tsx";
-
-import { StudentIndex } from "./views/Admin/student/index.tsx";
-import { StudentModules } from "./views/Admin/student/StudentModules.tsx";
-
 import { PaymentIndex } from "./views/Admin/payments/index.tsx";
 import { PaymentsAdmin } from "./views/Admin/payments/PaymentsAdmin.tsx";
 import { PaymentStudent } from "./views/Admin/payments/PaymentStudent.tsx";
@@ -38,6 +34,15 @@ import { StudentModule } from "./views/Admin/student/StudentModule.tsx";
 import { StudentExam } from "./views/Admin/student/StudentExam.tsx";
 import { StudentsTasks } from "./views/Admin/student/StudentsTasks.tsx";
 import { StudentMeetings } from "./views/Admin/student/StudentMeetings.tsx";
+import { StudentIndex } from "./views/Admin/student/index.tsx";
+import { StudentModules } from "./views/Admin/student/StudentModules.tsx";
+
+import { ModulesScreen } from "./views/ModulesScreen.tsx";
+import { ModuleStudentIndex } from "./views/modules/index.tsx";
+import { ModuleInfoStudent } from "./views/modules/ModuleInfoStudent.tsx";
+import { ModuleTaskStudent } from "./views/modules/ModuleTaskStudent.tsx";
+import { ModuleExamStudent } from "./views/modules/ModuleExamStudent.tsx";
+import { ModuleExamScreen } from "./views/modules/ModuleExamScreen.tsx";
 
 const root = document.getElementById("root")!;
 
@@ -83,6 +88,13 @@ ReactDOM.createRoot(root).render(
                 <Route index element={<PaymentsAdmin />} />
                 <Route path=":id" element={<PaymentStudent />} />
               </Route>
+            </Route>
+            <Route path="modules" element={<ModulesScreen />} />
+            <Route path="module/:id" element={<ModuleStudentIndex />}>
+              <Route path="info" element={<ModuleInfoStudent />} />
+              <Route path="tasks" element={<ModuleTaskStudent />} />
+              <Route path="exam" element={<ModuleExamStudent />} />
+              <Route path="exam/:examId" element={<ModuleExamScreen />} />
             </Route>
           </Route>
         </Route>

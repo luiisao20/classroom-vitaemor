@@ -188,7 +188,10 @@ export const ExamModule = () => {
             </div>
             <button
               onClick={() => examMutation.mutate(examInfo)}
-              className="p-2 cursor-pointer bg-secondary hover:bg-secondary/60 text-text-secondary rounded-xl place-self-center"
+              disabled={examMutation.isPending}
+              className={`p-2 cursor-pointer bg-secondary hover:bg-secondary/60 text-text-secondary rounded-xl place-self-center ${
+                examMutation.isPending && "cursor-progress"
+              }`}
             >
               Actualizar información
             </button>

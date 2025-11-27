@@ -64,6 +64,6 @@ export const useTasks = (moduleId: number) => {
     tasksQuery,
     tasksMutation,
     tasksPublishMutation,
-    tasksDeleteMutation
+    tasksDeleteMutation,
   };
 };

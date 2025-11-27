@@ -108,7 +108,7 @@ export const ModalCreateModule = ({
                   }`}
                 >
                   <IoMdAddCircle className="mr-4" size={20} />
-                  Agregar nueva conferencia
+                  Agregar nuevo módulo
                 </button>
               </>
             )}

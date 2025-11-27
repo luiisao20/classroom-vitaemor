@@ -22,6 +22,7 @@ export const useAdminExam = (moduleId: number) => {
       queryClient.invalidateQueries({
         queryKey: ["exam", moduleId],
       });
+      alert("¡La información del examen se ha actualizado!");
     },
 
     onError: (error) => {

@@ -46,7 +46,7 @@ export const ModulesIndex = () => {
     <div className="relative">
       <ButtonGoBack />
       <h2 className="text-2xl text-center font-semibold text-text">
-        Conferencia: {dataModule?.moduleNumber}
+        Módulo: {dataModule?.moduleNumber}
       </h2>
       <div className="flex flex-col md:flex-row justify-between items-start">
         <div className="m-4">

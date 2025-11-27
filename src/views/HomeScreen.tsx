@@ -30,10 +30,10 @@ export const HomeScreen = () => {
       route: "profile/grades",
     },
     {
-      title: "Conferencias",
+      title: "Módulos",
       shortDescription: "Explora el material de estudio asignado.",
       detailedDescription:
-        "Aquí encontrarás los recursos educativos disponibles para cada conferencia: documentos, presentaciones, enlaces y archivos subidos por el docente. Todo organizado para facilitar tu aprendizaje.",
+        "Aquí encontrarás los recursos educativos disponibles para cada módulo: documentos, presentaciones, enlaces y archivos subidos por el docente. Todo organizado para facilitar tu aprendizaje.",
       route: "modules",
     },
     {

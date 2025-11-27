@@ -74,7 +74,7 @@ export const InfoModule = () => {
                   id="resume"
                   rows={6}
                   className="w-full px-0 text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none bg-transparent"
-                  placeholder="Ingresa un resumen de la conferencia"
+                  placeholder="Ingresa un resumen del módulo"
                 ></textarea>
               </div>
               <div className="flex items-center justify-end px-3 py-2 border-t">

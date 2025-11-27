@@ -6,19 +6,14 @@ import { Colors } from "../../assets/colors";
 interface Props {
   modulesList: Module[];
   route: "module" | "generals" | "students";
-  generals?: boolean;
   studentId?: string;
 }
 
 export const ModulesList = ({
   modulesList,
   route,
-  generals = false,
   studentId
 }: Props) => {
-  const displayedModules = generals
-    ? modulesList
-    : modulesList.filter((item) => item.status);
 
   const getRouteType = (idModule: number) => {
     switch (route) {
@@ -33,7 +28,7 @@ export const ModulesList = ({
 
   return (
     <div className="flex flex-col space-y-4 my-4 w-3/4 mx-auto">
-      {displayedModules.map((item) => (
+      {modulesList.map((item) => (
         <div key={item.id}>
           <Link
             to={`${getRouteType(item.id!)}`}

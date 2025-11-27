@@ -19,7 +19,7 @@ export interface AdditionalContent {
   id?: number;
   topic: string;
   url: string;
-  moduleId: number;
+  moduleId?: number;
 }
 
 export interface Bibliography {
@@ -103,4 +103,20 @@ export interface StudentAssistance {
   date: string;
   status: boolean;
   moduleNumber: number;
+}
+
+export interface ModuleInfo extends Module {
+  bibliography: string[];
+  additionalContent: AdditionalContent[];
+}
+
+export interface Submission {
+  url: string;
+  fileName: string;
+  path: string;
+  createdAt?: string;
+  grade?: number;
+  feedback?: string;
+  gradedAt?: string;
+  idTask: number;
 }

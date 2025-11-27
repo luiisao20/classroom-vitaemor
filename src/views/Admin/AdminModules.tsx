@@ -42,7 +42,7 @@ export const AdminModules = () => {
         </button>
       </div>
       {modulesList.length > 0 ? (
-        <ModulesList modulesList={modulesList} route="generals" generals />
+        <ModulesList modulesList={modulesList} route="generals" />
       ) : (
         <p className="my-4">No existen módulos creados</p>
       )}

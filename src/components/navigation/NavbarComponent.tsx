@@ -64,6 +64,9 @@ export const NavbarComponent = () => {
           <DropdownItem>
             <Link to="profile/payments">Pagos</Link>
           </DropdownItem>
+          <DropdownItem>
+            <Link to="profile/meetings">Reuniones</Link>
+          </DropdownItem>
           <DropdownDivider />
           <button
             className="cursor-pointer text-text-secondary py-2 px-4"
@@ -82,7 +85,7 @@ export const NavbarComponent = () => {
           Inicio
         </NavLink>
         <NavLink
-          to="/modules"
+          to="modules"
           className={({ isActive }) =>
             isActive ? "text-white" : "text-text hover:text-modal"
           }
