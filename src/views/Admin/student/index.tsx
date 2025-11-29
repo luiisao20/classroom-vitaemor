@@ -36,7 +36,7 @@ export const StudentIndex = () => {
         </h2>
         <button
           onClick={() =>
-            location === "modules" ? navigate("meetings") : navigate(-1)
+            location === "modules" ? navigate("meetings") : navigate("modules")
           }
           className="place-self-start hover:underline cursor-pointer font-semibold flex justify-center items-center text-primary gap-2"
         >

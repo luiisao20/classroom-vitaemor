@@ -22,7 +22,7 @@ export const ModulesList = ({
       case "generals":
         return `/home/admin/module/${idModule}/info`;
       case "students":
-        return `/home/admin/student/${studentId}/module/${idModule}/exam`;
+        return `/home/admin/student/${studentId}/module/${idModule}/tasks`;
     }
   };
 

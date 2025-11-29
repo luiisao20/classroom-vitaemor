@@ -7,15 +7,15 @@ import { Outlet } from "react-router";
 export const StudentModule = () => {
   const routes: SideRoute[] = [
     {
+      name: "Tareas",
+      route: "tasks",
+      icon: <MdTask size={25} />,
+    },
+    {
       name: "Examen",
       route: "exam",
       icon: <BsUnion size={25} />,
     },
-    {
-      name: "Tareas",
-      route: "tasks",
-      icon: <MdTask size={25} />,
-    }
   ];
   return (
     <div>

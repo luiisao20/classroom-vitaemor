@@ -120,3 +120,27 @@ export interface Submission {
   gradedAt?: string;
   idTask: number;
 }
+
+export interface Answer {
+  questionId: number;
+  typeId: number;
+  optionId?: number;
+  text?: string;
+  grade?: number;
+}
+
+export interface StudentAnswer {
+  idQuestion: number;
+  question: string;
+  answer?: string;
+  optionSelected?: string;
+  isCorrect?: boolean;
+  correctOption?: string;
+  questionType: number;
+  grade: number;
+}
+
+export interface GradesByQuestion {
+  idQuestion: number;
+  grade: string;
+}
