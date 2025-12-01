@@ -1,7 +1,11 @@
 import { Outlet } from "react-router";
 
 import { IoIosCreate } from "react-icons/io";
-import { PiContactlessPaymentFill, PiStudentBold } from "react-icons/pi";
+import {
+  PiContactlessPaymentFill,
+  // PiMicrosoftExcelLogoFill,
+  PiStudentBold,
+} from "react-icons/pi";
 import { MdOutlineGrade } from "react-icons/md";
 import { TiWarningOutline } from "react-icons/ti";
 
@@ -22,7 +26,7 @@ export const AdminIndex = () => {
     },
     {
       name: "Calificaciones",
-      route: "/home/admin/grades",
+      route: "/home/admin/grades/students",
       icon: <MdOutlineGrade size={25} />,
     },
     {
@@ -35,6 +39,11 @@ export const AdminIndex = () => {
       route: "/home/admin/payments",
       icon: <PiContactlessPaymentFill size={25} />,
     },
+    // {
+    //   name: "Excel",
+    //   route: "/home/admin/excel",
+    //   icon: <PiMicrosoftExcelLogoFill size={25} />,
+    // },
   ];
   return (
     <>

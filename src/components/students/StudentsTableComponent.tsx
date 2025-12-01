@@ -8,6 +8,7 @@ interface Props {
   students: Student[];
   search: string;
   payments?: boolean;
+  grades?:boolean;
 
   onChangeSearch: (text: string) => void;
 }
@@ -16,11 +17,13 @@ export const StudentsTableComponent = ({
   students,
   search,
   payments,
+  grades,
 
   onChangeSearch,
 }: Props) => {
   const goRoute = (id: string): string => {
     if (payments) return `/home/admin/payments/${id}`
+    else if (grades) return `/home/admin/grades/student/${id}`
     return `/home/admin/student/${id}/modules`;
   };
 

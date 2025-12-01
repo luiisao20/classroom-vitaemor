@@ -8,6 +8,7 @@ import { Login } from "./views/Login.tsx";
 import { Register } from "./views/Register.tsx";
 import { AuthenticatedScreen } from "./views/AuthenticatedScreen.tsx";
 import { HomeScreen } from "./views/HomeScreen.tsx";
+import { LibraryScreen } from "./views/LibraryScreen.tsx";
 
 import { IndexProfile } from "./views/Profile/index.tsx";
 import { ProfileScreen } from "./views/Profile/ProfileScreen.tsx";
@@ -19,7 +20,6 @@ import { MeetingsScreen } from "./views/Profile/MeetingsScreen.tsx";
 import { AdminIndex } from "./views/Admin/index.tsx";
 import { AdminModules } from "./views/Admin/AdminModules.tsx";
 import { StudentsScreen } from "./views/Admin/StudentsScreen.tsx";
-
 import { ModulesIndex } from "./views/Admin/modules/index.tsx";
 import { InfoModule } from "./views/Admin/modules/InfoModule.tsx";
 import { TasksModule } from "./views/Admin/modules/TasksModule.tsx";
@@ -36,6 +36,12 @@ import { StudentsTasks } from "./views/Admin/student/StudentsTasks.tsx";
 import { StudentMeetings } from "./views/Admin/student/StudentMeetings.tsx";
 import { StudentIndex } from "./views/Admin/student/index.tsx";
 import { StudentModules } from "./views/Admin/student/StudentModules.tsx";
+import { ExcelUploader } from "./views/Admin/ExcelView.tsx";
+import { AdminGradesIndex } from "./views/Admin/grades/index.tsx";
+import { AdminExamGrades } from "./views/Admin/grades/AdminExamGrades.tsx";
+import { GradesStudents } from "./views/Admin/grades/Students.tsx";
+import { StudentGrades } from "./views/Admin/grades/StudentGrades.tsx";
+import { AdminTasksGrades } from "./views/Admin/grades/AdminTasksGrades.tsx";
 
 import { ModulesScreen } from "./views/ModulesScreen.tsx";
 import { ModuleStudentIndex } from "./views/modules/index.tsx";
@@ -66,6 +72,7 @@ ReactDOM.createRoot(root).render(
             </Route>
             <Route path="admin" element={<AdminIndex />}>
               <Route path="modules" element={<AdminModules />} />
+              <Route path="excel" element={<ExcelUploader />} />
               <Route path="module/:id" element={<ModulesIndex />}>
                 <Route path="info" element={<InfoModule />} />
                 <Route path="tasks" element={<TasksModule />} />
@@ -88,6 +95,12 @@ ReactDOM.createRoot(root).render(
                 <Route index element={<PaymentsAdmin />} />
                 <Route path=":id" element={<PaymentStudent />} />
               </Route>
+              <Route path="grades" element={<AdminGradesIndex />}>
+                <Route path="exams" element={<AdminExamGrades />} />
+                <Route path="tasks" element={<AdminTasksGrades />} />
+                <Route path="students" element={<GradesStudents />} />
+                <Route path="student/:id" element={<StudentGrades />} />
+              </Route>
             </Route>
             <Route path="modules" element={<ModulesScreen />} />
             <Route path="module/:id" element={<ModuleStudentIndex />}>
@@ -96,6 +109,7 @@ ReactDOM.createRoot(root).render(
               <Route path="exam" element={<ModuleExamStudent />} />
               <Route path="exam/:examId" element={<ModuleExamScreen />} />
             </Route>
+            <Route path="library" element={<LibraryScreen />} />
           </Route>
         </Route>
       </Routes>

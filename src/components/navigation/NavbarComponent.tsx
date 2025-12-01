@@ -93,7 +93,7 @@ export const NavbarComponent = () => {
           Módulos
         </NavLink>
         <NavLink
-          to="/modules"
+          to="library"
           className={({ isActive }) =>
             isActive ? "text-white" : "text-text hover:text-modal"
           }

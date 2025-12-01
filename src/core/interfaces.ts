@@ -144,3 +144,41 @@ export interface GradesByQuestion {
   idQuestion: number;
   grade: string;
 }
+
+export interface Book {
+  id?: number;
+  title: string;
+  authors: string;
+  categoryId: number;
+  typeId: number;
+  url: string;
+}
+
+export interface BookPropertie {
+  id: number;
+  name: string;
+}
+
+export interface StudentGradeExam {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  grade?: number;
+}
+
+export interface ModuleExamGrade {
+  moduleId: number;
+  examId: number;
+  review: boolean;
+  module: number;
+  createdAt: string;
+  grade?: number;
+}
+
+export interface StudentTaskGrade {
+  moduleId: number;
+  moduleNumber: number;
+  title: string;
+  grade: number
+}
