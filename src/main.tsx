@@ -15,6 +15,8 @@ import { ProfileScreen } from "./views/Profile/ProfileScreen.tsx";
 import { PasswordScreen } from "./views/Profile/PasswordScreen.tsx";
 import { PaymentsScreen } from "./views/Profile/PaymentsScreen.tsx";
 import { GradesScreen } from "./views/Profile/GradesScreen.tsx";
+import { ExamGradesProfile } from "./views/Profile/ExamGradesProfile.tsx";
+import { TaskGradesProfile } from "./views/Profile/TaskGradesProfile.tsx";
 import { MeetingsScreen } from "./views/Profile/MeetingsScreen.tsx";
 
 import { AdminIndex } from "./views/Admin/index.tsx";
@@ -49,6 +51,7 @@ import { ModuleInfoStudent } from "./views/modules/ModuleInfoStudent.tsx";
 import { ModuleTaskStudent } from "./views/modules/ModuleTaskStudent.tsx";
 import { ModuleExamStudent } from "./views/modules/ModuleExamStudent.tsx";
 import { ModuleExamScreen } from "./views/modules/ModuleExamScreen.tsx";
+import { ReviewExamProfile } from "./views/Profile/ReviewExamProfile.tsx";
 
 const root = document.getElementById("root")!;
 
@@ -67,7 +70,11 @@ ReactDOM.createRoot(root).render(
               <Route path="main" element={<ProfileScreen />} />
               <Route path="password" element={<PasswordScreen />} />
               <Route path="payments" element={<PaymentsScreen />} />
-              <Route path="grades" element={<GradesScreen />} />
+              <Route path="grades" element={<GradesScreen />}>
+                <Route path="exams" element={<ExamGradesProfile />} />
+                <Route path="tasks" element={<TaskGradesProfile />} />
+              </Route>
+              <Route path="review/exam/:id" element={<ReviewExamProfile />} />
               <Route path="meetings" element={<MeetingsScreen />} />
             </Route>
             <Route path="admin" element={<AdminIndex />}>

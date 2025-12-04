@@ -59,7 +59,7 @@ export const NavbarComponent = () => {
             <Link to="profile/password">Contraseña</Link>
           </DropdownItem>
           <DropdownItem>
-            <Link to="profile/grades">Calificaciones</Link>
+            <Link to="profile/grades/tasks">Calificaciones</Link>
           </DropdownItem>
           <DropdownItem>
             <Link to="profile/payments">Pagos</Link>

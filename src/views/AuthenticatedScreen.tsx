@@ -16,7 +16,7 @@ export const AuthenticatedScreen = () => {
       ) : (
         <>
           <NavbarComponent />
-          <div className="px-4 my-2 lg:px-0 lg:w-1/2 mx-auto">
+          <div className="px-4 my-2 md:px-0 md:w-1/2 mx-auto">
             <Outlet />
           </div>
         </>

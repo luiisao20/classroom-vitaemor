@@ -6,18 +6,19 @@ import { insertNewTask } from "../../core/database/tasks/insert-new-task.action"
 import { publishTask } from "../../core/database/tasks/publish-task.action";
 import { deleteTask } from "../../core/database/tasks/delete-task.action";
 
-export const useTasks = (moduleId: number) => {
+export const useTasks = (moduleId?: number) => {
   const queryClient = useQueryClient();
 
   const tasksQuery = useQuery({
-    queryFn: () => getTasksByModule(moduleId),
+    queryFn: () => getTasksByModule(moduleId!),
     queryKey: ["tasks", moduleId],
     staleTime: 1000 * 60 * 60,
+    enabled: !!moduleId
   });
 
   const tasksMutation = useMutation({
     mutationFn: (task: Task) =>
-      task.id ? updateTask(task) : insertNewTask(task, moduleId),
+      task.id ? updateTask(task) : insertNewTask(task, moduleId!),
 
     onSuccess: () => {
       queryClient.invalidateQueries({

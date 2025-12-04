@@ -167,6 +167,14 @@ export interface StudentGradeExam {
   grade?: number;
 }
 
+export interface StudentGradeTask {
+  title: string;
+  feedback?: number;
+  grade?: number;
+  url?: string;
+  fileName?: string;
+}
+
 export interface ModuleExamGrade {
   moduleId: number;
   examId: number;

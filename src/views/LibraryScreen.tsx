@@ -191,7 +191,7 @@ export const LibraryScreen = () => {
                 >
                   <th
                     scope="row"
-                    className="px-6 py-4 font-medium text-xs whitespace-wrap"
+                    className="px-6 py-4 font-medium text-xs"
                   >
                     {item.title}
                   </th>

@@ -2,7 +2,7 @@ import { Colors } from "../../assets/colors";
 
 export const LoaderComponent = () => {
   return (
-    <div className="bg-white py-10 text-center rounded-xl">
+    <div className="py-10 text-center rounded-xl">
       <div role="status">
         <svg
           color={Colors.primary}

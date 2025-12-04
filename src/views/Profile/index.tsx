@@ -22,7 +22,7 @@ export const IndexProfile = () => {
     },
     {
       name: "Calificaciones",
-      route: "grades",
+      route: "grades/tasks",
       icon: <MdOutlineGrade size={25} />,
     },
     {

@@ -5,12 +5,14 @@ import { Link } from "react-router";
 
 interface Props {
   grades?: boolean;
+  tasks?: boolean;
   idModule: number;
   students: StudentGradeExam[];
 }
 
-export const StudentGradesGeneral = ({ students, idModule }: Props) => {
+export const StudentGradesGeneral = ({ tasks, students, idModule }: Props) => {
   const goRoute = (id: string): string => {
+    if (tasks) return `/home/admin/student/${id}/module/${idModule}/tasks`;
     return `/home/admin/student/${id}/module/${idModule}/exam`;
   };
 
